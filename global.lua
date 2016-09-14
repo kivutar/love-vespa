@@ -1,0 +1,15 @@
+SCREEN_WIDTH = 320
+SCREEN_HEIGHT = 240
+SPEED = 8
+DISTANCE = 0
+COUNTER = 0
+FUEL = 1000
+HP = 10
+MAX_HP = 10
+MONEY = 0
+STATE = 'game'
+
+LAST = nil
+MULT = 1
+
+entities = {}
