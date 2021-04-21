@@ -34,21 +34,15 @@ function newPlayer()
 end
 
 function player:update(dt)
+	JOY_LEFT  = lutro.joystick.isDown(1, RETRO_DEVICE_ID_JOYPAD_LEFT)
+	JOY_RIGHT = lutro.joystick.isDown(1, RETRO_DEVICE_ID_JOYPAD_RIGHT)
+	JOY_UP = lutro.joystick.isDown(1, RETRO_DEVICE_ID_JOYPAD_UP)
+	JOY_DOWN = lutro.joystick.isDown(1, RETRO_DEVICE_ID_JOYPAD_DOWN)
 
-	local touches = love.touch.getTouches()
-
-	for i, id in ipairs(touches) do
-		local x, y = love.touch.getPosition(id)
-		local newx = x/3 - self.width/2
-		local newy = y/3 - self.height/2 - 8
-
-		self.xspeed = (newx - self.x) * 10
-		self.yspeed = (newy - self.y) * 10
-	end
-
-	if #touches > 0 then
-		FUEL = FUEL - 1
-	end
+	if JOY_LEFT then self.xspeed = -100 end
+	if JOY_RIGHT then self.xspeed = 100 end
+	if JOY_UP then self.yspeed = -100 end
+	if JOY_DOWN then self.yspeed = 100 end
 
 	self.x = self.x + self.xspeed * dt
 	self.y = self.y + self.yspeed * dt

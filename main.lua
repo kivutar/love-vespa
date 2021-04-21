@@ -48,7 +48,7 @@ function lutro.load()
 	sfx_splash = lutro.audio.newSource("assets/splash.wav", "static")
 	sfx_select = lutro.audio.newSource("assets/select.wav", "static")
 	sfx_fall = lutro.audio.newSource("assets/fall.wav", "static")
-	bgm_labbed = lutro.audio.newSource("assets/labbed.mp3", "stream")
+	bgm_labbed = lutro.audio.newSource("assets/labbed.ogg", "stream")
 
 	bgm_labbed:setVolume(1)
 	love.audio.play(bgm_labbed)
@@ -276,7 +276,7 @@ function game_update(dt)
 end
 
 function lutro.draw()
-	lutro.graphics.clear(love.graphics.getBackgroundColor())
+	lutro.graphics.clear()
 
 	love.graphics.push()
 	love.graphics.scale(3, 3)

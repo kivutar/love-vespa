@@ -33,13 +33,13 @@ function animation:draw(x, y)
 
 	local q = lutro.graphics.newQuad(
 		((id-1)%(sw/tw))*tw,
-		math.floor((id-1)/(sw/tw))*tw,
+		0,
 		tw, th,
 		sw, sh)
 
 	lutro.graphics.draw(
 		self.image,
 		q,
-		x, y
+		math.floor(x), math.floor(y)
 	)
 end

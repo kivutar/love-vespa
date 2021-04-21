@@ -55,6 +55,8 @@ function game_over:gamepadpressed(i, k)
 			table.insert(entities, newPlayer())
 		end
 	end
-	if self.choice < 1 then self.choice = #self.choices end
-	if self.choice > #self.choices then self.choice = 1 end
+	if self then
+		if self.choice < 1 then self.choice = #self.choices end
+		if self.choice > #self.choices then self.choice = 1 end
+	end
 end
