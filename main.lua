@@ -69,11 +69,10 @@ function lutro.load()
 	IMG_pavement_down = lutro.graphics.newImage("assets/pavement_down.png")
 	IMG_pavement_up = lutro.graphics.newImage("assets/pavement_up.png")
 
-	font = lutro.graphics.newImageFont("assets/font.png", " ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789*:|=-<>./'\"+$")
-	lutro.graphics.setFont(font)
-
-	moneyfont = lutro.graphics.newImageFont("assets/moneyfont.png", "0123456789$")
-	numbersfont = lutro.graphics.newImageFont("assets/numbersfont.png", "0123456789+")
+	FNT_default = lutro.graphics.newImageFont("assets/font.png", " ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789*:|=-<>./'\"+$")
+	FNT_money = lutro.graphics.newImageFont("assets/moneyfont.png", "0123456789$")
+	FNT_numbers = lutro.graphics.newImageFont("assets/numbersfont.png", "0123456789+")
+	lutro.graphics.setFont(FNT_default)
 
 	MENU = nil
 
@@ -213,8 +212,6 @@ function lutro.load()
 		end,
 
 	}
-
-	lx = 0
 end
 
 function compare(a, b)
@@ -308,10 +305,10 @@ function lutro.draw()
 	-- lutro.graphics.print("SPEED: " .. SPEED*10 .. "m", 3, 13)
 	-- lutro.graphics.print("ARMOR: " .. ARMOR, 3, 23)
 
-	lutro.graphics.setFont(moneyfont)
+	lutro.graphics.setFont(FNT_money)
 	lutro.graphics.setColor(255, 255, 0)
 	lutro.graphics.print("$" .. math.floor(MONEY), 260, 4)
-	lutro.graphics.setFont(font)
+	lutro.graphics.setFont(FNT_default)
 	lutro.graphics.setColor(255, 255, 255)
 
 	if STATE == "menu" then

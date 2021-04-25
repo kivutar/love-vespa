@@ -27,7 +27,7 @@ function notif:update(dt)
 end
 
 function notif:draw()
-	lutro.graphics.setFont(numbersfont)
+	lutro.graphics.setFont(FNT_numbers)
 	lutro.graphics.setColor(self.color)
 	lutro.graphics.print(self.text, self.x, self.y)
 	lutro.graphics.setColor(255, 255, 255)
