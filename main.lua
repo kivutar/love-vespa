@@ -66,6 +66,10 @@ function lutro.load()
 	IMG_heart_full = lutro.graphics.newImage("assets/heart_full.png")
 	IMG_heart_half = lutro.graphics.newImage("assets/heart_half.png")
 	IMG_heart_empty = lutro.graphics.newImage("assets/heart_empty.png")
+	IMG_minifuel = lutro.graphics.newImage("assets/minifuel.png")
+	IMG_money = lutro.graphics.newImage("assets/money.png")
+	IMG_pavement_down = lutro.graphics.newImage("assets/pavement_down.png")
+	IMG_pavement_up = lutro.graphics.newImage("assets/pavement_up.png")
 
 	font = lutro.graphics.newImageFont("assets/font.png", " ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789*:|=-<>./'\"+$")
 	lutro.graphics.setFont(font)
@@ -85,7 +89,7 @@ function lutro.load()
 	table.insert(ENTITIES, PLAYER)
 	table.insert(ENTITIES, newLifeBar())
 
-	challenges = {
+	CHALLENGES = {
 		function ()
 			table.insert(ENTITIES, newScooter(
 				SCREEN_WIDTH,
@@ -242,7 +246,7 @@ function game_update(dt)
 	COUNTER = COUNTER + SPEED
 
 	if COUNTER > 800 then
-		challenges[math.random(#challenges)]()
+		CHALLENGES[math.random(#CHALLENGES)]()
 
 		local r = math.random(2)
 		if r == 1 then
