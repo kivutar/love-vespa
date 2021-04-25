@@ -42,13 +42,16 @@ function game_over:gamepadpressed(i, k)
 			STATE = "game"
 			DISTANCE = 0
 			FUEL = 100
+			HP = MAX_HP
 			MENU = nil
 			self = nil
 			ENTITIES = {}
 			table.insert(ENTITIES, newLines())
 			table.insert(ENTITIES, newPavementsUp())
 			table.insert(ENTITIES, newPavementsDown())
-			table.insert(ENTITIES, newPlayer())
+			PLAYER = newPlayer()
+			table.insert(ENTITIES, PLAYER)
+			table.insert(ENTITIES, newLifeBar())
 		end
 	end
 	if self then

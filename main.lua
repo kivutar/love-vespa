@@ -63,6 +63,9 @@ function lutro.load()
 	IMG_player_default = lutro.graphics.newImage("assets/player_default.png")
 	IMG_player_crashed = lutro.graphics.newImage("assets/player_crashed.png")
 	IMG_player_stopped = lutro.graphics.newImage("assets/player_stopped.png")
+	IMG_heart_full = lutro.graphics.newImage("assets/heart_full.png")
+	IMG_heart_half = lutro.graphics.newImage("assets/heart_half.png")
+	IMG_heart_empty = lutro.graphics.newImage("assets/heart_empty.png")
 
 	font = lutro.graphics.newImageFont("assets/font.png", " ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789*:|=-<>./'\"+$")
 	lutro.graphics.setFont(font)
@@ -78,8 +81,8 @@ function lutro.load()
 	table.insert(ENTITIES, newLines())
 	table.insert(ENTITIES, newPavementsUp())
 	table.insert(ENTITIES, newPavementsDown())
-	player = newPlayer()
-	table.insert(ENTITIES, player)
+	PLAYER = newPlayer()
+	table.insert(ENTITIES, PLAYER)
 	table.insert(ENTITIES, newLifeBar())
 
 	challenges = {
@@ -265,7 +268,7 @@ function game_update(dt)
 		lutro.audio.play(SFX_fall)
 		STATE = 'menu'
 		MENU = newGameOver()
-		player.anim = player.animations.stoped
+		PLAYER.anim = PLAYER.animations.stoped
 	end
 
 	if HP <= 0 then
@@ -273,7 +276,7 @@ function game_update(dt)
 		lutro.audio.play(SFX_fall)
 		STATE = 'menu'
 		MENU = newGameOver()
-		player.anim = player.animations.crashed
+		PLAYER.anim = PLAYER.animations.crashed
 	end
 
 	for i=1, #ENTITIES do
