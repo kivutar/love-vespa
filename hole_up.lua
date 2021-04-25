@@ -12,8 +12,7 @@ function newHoleUp(x)
 	n.y = 78
 	n.z = 0
 
-	n.anim = newAnimation(lutro.graphics.newImage(
-			"assets/hole_up.png"),  256, 66, 1, 10)
+	n.anim = newAnimation(IMG_hole_up,  256, 66, 1, 10)
 
 	return setmetatable(n, hole_up)
 end

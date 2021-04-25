@@ -43,15 +43,23 @@ function lutro.load()
 
 	math.randomseed(os.time())
 
-	sfx_touch = lutro.audio.newSource("assets/touch.wav", "static")
-	sfx_pickup = lutro.audio.newSource("assets/pickup.wav", "static")
-	sfx_splash = lutro.audio.newSource("assets/splash.wav", "static")
-	sfx_select = lutro.audio.newSource("assets/select.wav", "static")
-	sfx_fall = lutro.audio.newSource("assets/fall.wav", "static")
+	SFX_touch = lutro.audio.newSource("assets/touch.wav", "static")
+	SFX_pickup = lutro.audio.newSource("assets/pickup.wav", "static")
+	SFX_splash = lutro.audio.newSource("assets/splash.wav", "static")
+	SFX_select = lutro.audio.newSource("assets/select.wav", "static")
+	SFX_fall = lutro.audio.newSource("assets/fall.wav", "static")
 
-	bgm_labbed = lutro.audio.newSource("assets/labbed.ogg", "stream")
-	bgm_labbed:setVolume(1)
-	love.audio.play(bgm_labbed)
+	BGM_labbed = lutro.audio.newSource("assets/labbed.ogg", "stream")
+	BGM_labbed:setVolume(1)
+	love.audio.play(BGM_labbed)
+
+	IMG_warning = lutro.graphics.newImage("assets/warning.png")
+	IMG_repair = lutro.graphics.newImage("assets/repair.png")
+	IMG_life = lutro.graphics.newImage("assets/life.png")
+	IMG_hole_up = lutro.graphics.newImage("assets/hole_up.png")
+	IMG_hole_down = lutro.graphics.newImage("assets/hole_down.png")
+	IMG_fuel = lutro.graphics.newImage("assets/fuel.png")
+	IMG_crosswalk = lutro.graphics.newImage("assets/crosswalk.png")
 
 	font = lutro.graphics.newImageFont("assets/font.png", " ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789*:|=-<>./'\"+$")
 	lutro.graphics.setFont(font)
@@ -61,7 +69,7 @@ function lutro.load()
 
 	MENU = nil
 
-	scrn_shake = 0
+	SHAKE = 0
 
 	lutro.graphics.setBackgroundColor(64, 64, 64)
 	table.insert(entities, newLines())
@@ -210,8 +218,8 @@ function compare(a, b)
 end
 
 function lutro.update(dt)
-	if scrn_shake > 0 then
-		scrn_shake = scrn_shake - dt
+	if SHAKE > 0 then
+		SHAKE = SHAKE - dt
 	end
 
 	if STATE == 'game' then
@@ -251,7 +259,7 @@ function game_update(dt)
 
 	if FUEL <= 0 then
 		FUEL = 0
-		lutro.audio.play(sfx_fall)
+		lutro.audio.play(SFX_fall)
 		STATE = 'menu'
 		MENU = newGameOver()
 		player.anim = player.animations.stoped
@@ -259,7 +267,7 @@ function game_update(dt)
 
 	if HP <= 0 then
 		HP = 0
-		lutro.audio.play(sfx_fall)
+		lutro.audio.play(SFX_fall)
 		STATE = 'menu'
 		MENU = newGameOver()
 		player.anim = player.animations.crashed
@@ -282,7 +290,7 @@ function lutro.draw()
 	-- love.graphics.translate(0, 8)
 
 	-- Shake camera if hit
-	if scrn_shake > 0 then
+	if SHAKE > 0 then
 		lutro.graphics.translate(5*(math.random()-0.5),5*(math.random()-0.5))
 	end
 

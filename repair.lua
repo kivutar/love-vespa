@@ -12,8 +12,7 @@ function newRepair(x, y, speed)
 	n.speed = speed
 	n.yspeed = 0
 
-	n.anim = newAnimation(lutro.graphics.newImage(
-			"assets/repair.png"),  32, 32, 1, 10)
+	n.anim = newAnimation(IMG_repair,  32, 32, 1, 10)
 
 	return setmetatable(n, repair)
 end

@@ -9,8 +9,6 @@ function newCrosswalk()
 	l.width = 80
 	l.height = 0
 
-	l.img = lutro.graphics.newImage("assets/crosswalk.png")
-
 	return setmetatable(l, crosswalk)
 end
 
@@ -27,5 +25,5 @@ function crosswalk:update(dt)
 end
 
 function crosswalk:draw()
-	lutro.graphics.draw(self.img, self.x, self.y)
+	lutro.graphics.draw(IMG_crosswalk, self.x, self.y)
 end

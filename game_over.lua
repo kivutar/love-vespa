@@ -11,10 +11,6 @@ function newGameOver(x, y, speed)
 	return setmetatable(n, game_over)
 end
 
-function game_over:update(dt)
-
-end
-
 function game_over:draw()
 	lutro.graphics.rectangle("fill", 142, 94, 100, 52)
 	lutro.graphics.setColor(0,0,0)
@@ -37,10 +33,10 @@ end
 function game_over:gamepadpressed(i, k)
 	if k == "down" then
 		self.choice = self.choice + 1
-		lutro.audio.play(sfx_select)
+		lutro.audio.play(SFX_select)
 	elseif k == "up" then
 		self.choice = self.choice - 1
-		lutro.audio.play(sfx_select)
+		lutro.audio.play(SFX_select)
 	elseif k == "a" then
 		if self.choice == 1 then
 			STATE = "game"

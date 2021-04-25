@@ -100,8 +100,8 @@ function player:on_collide(e1, e2, dx, dy)
 	if e2.type == "truck"
 	or e2.type == "bus"
 	then
-		lutro.audio.play(sfx_splash)
-		scrn_shake = 0.25
+		lutro.audio.play(SFX_splash)
+		SHAKE = 0.25
 		STATE = 'menu'
 		MENU = newGameOver()
 		self.x = self.x + dx
@@ -109,7 +109,7 @@ function player:on_collide(e1, e2, dx, dy)
 
 	elseif e2.type == "hole"
 	then
-		lutro.audio.play(sfx_fall)
+		lutro.audio.play(SFX_fall)
 		STATE = 'menu'
 		MENU = newGameOver()
 		self.anim = self.animations.crashed
@@ -119,8 +119,8 @@ function player:on_collide(e1, e2, dx, dy)
 	then
 		self.yspeed = -self.yspeed*2
 		self.y = self.y + dy
-		lutro.audio.play(sfx_touch)
-		scrn_shake = 0.25
+		lutro.audio.play(SFX_touch)
+		SHAKE = 0.25
 		HP = HP - 1
 
 	-- items --
@@ -161,7 +161,7 @@ function player:on_collide(e1, e2, dx, dy)
 		end
 		if e2.type == "repair" then HP = MAX_HP end
 
-		lutro.audio.play(sfx_pickup)
+		lutro.audio.play(SFX_pickup)
 
 		LAST = e2.type
 
@@ -176,8 +176,8 @@ function player:on_collide(e1, e2, dx, dy)
 			e2.yspeed = -200
 		end
 		self.y = self.y + dy
-		lutro.audio.play(sfx_touch)
-		scrn_shake = 0.25
+		lutro.audio.play(SFX_touch)
+		SHAKE = 0.25
 		HP = HP - 1
 	end
 end

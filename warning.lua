@@ -14,8 +14,7 @@ function newWarning(y)
 	n.yspeed = 0
 	n.t = 0
 
-	n.anim = newAnimation(lutro.graphics.newImage(
-			"assets/warning.png"),  23, 19, 1, 5)
+	n.anim = newAnimation(IMG_warning,  23, 19, 1, 5)
 
 	return setmetatable(n, warning)
 end

@@ -12,8 +12,7 @@ function newFuel(x, y, speed)
 	n.speed = speed
 	n.yspeed = 0
 
-	n.anim = newAnimation(lutro.graphics.newImage(
-			"assets/fuel.png"),  32, 32, 1, 10)
+	n.anim = newAnimation(IMG_fuel,  32, 32, 1, 10)
 
 	return setmetatable(n, fuel)
 end
