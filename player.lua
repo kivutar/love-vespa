@@ -31,10 +31,10 @@ function newPlayer()
 end
 
 function player:update(dt)
-	JOY_LEFT  = lutro.joystick.isDown(1, RETRO_DEVICE_ID_JOYPAD_LEFT)
-	JOY_RIGHT = lutro.joystick.isDown(1, RETRO_DEVICE_ID_JOYPAD_RIGHT)
-	JOY_UP = lutro.joystick.isDown(1, RETRO_DEVICE_ID_JOYPAD_UP)
-	JOY_DOWN = lutro.joystick.isDown(1, RETRO_DEVICE_ID_JOYPAD_DOWN)
+	local JOY_LEFT  = lutro.joystick.isDown(1, RETRO_DEVICE_ID_JOYPAD_LEFT)
+	local JOY_RIGHT = lutro.joystick.isDown(1, RETRO_DEVICE_ID_JOYPAD_RIGHT)
+	local JOY_UP = lutro.joystick.isDown(1, RETRO_DEVICE_ID_JOYPAD_UP)
+	local JOY_DOWN = lutro.joystick.isDown(1, RETRO_DEVICE_ID_JOYPAD_DOWN)
 
 	if JOY_LEFT then self.xspeed = -100 end
 	if JOY_RIGHT then self.xspeed = 100 end

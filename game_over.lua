@@ -1,7 +1,7 @@
 local game_over = {}
 game_over.__index = game_over
 
-function newGameOver(x, y, speed)
+function newGameOver()
 	local n = {}
 	n.choice = 1
 	n.choices = {

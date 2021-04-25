@@ -28,6 +28,3 @@ end
 function hole_down:draw()
 	self.anim:draw(self.x - 32, self.y - 12)
 end
-
-function hole_down:on_collide(e1, e2, dx, dy)
-end

@@ -15,12 +15,9 @@ function newBigTruck(x, y, speed)
 
 	n.stance = "normal"
 
-	local colors = {"red", "white"}
-
-	n.color = colors[math.random(#colors)]
-
-	n.anim = newAnimation(lutro.graphics.newImage(
-			"assets/bigtruck_" .. n.color ..".png"),  90, 65, 1, 10)
+	local imgs = {IMG_bigtruck_red, IMG_bigtruck_white}
+	n.img = imgs[math.random(#imgs)]
+	n.anim = newAnimation(n.img,  90, 65, 1, 10)
 
 	return setmetatable(n, bigtruck)
 end

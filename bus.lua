@@ -15,12 +15,9 @@ function newBus(x, y, speed)
 
 	n.stance = "normal"
 
-	local colors = {"white", "red"}
-
-	n.color = colors[math.random(#colors)]
-
-	n.anim = newAnimation(lutro.graphics.newImage(
-			"assets/bus_" .. n.color ..".png"), 113, 55, 1, 10)
+	local imgs = {IMG_bus_red, IMG_bus_white}
+	n.img = imgs[math.random(#imgs)]
+	n.anim = newAnimation(n.img, 113, 55, 1, 10)
 
 	return setmetatable(n, bus)
 end
