@@ -340,3 +340,6 @@ function lutro.gamepadpressed(i, k)
 		MENU:gamepadpressed(i, k)
 	end
 end
+
+function lutro.gamepadreleased(i, k)
+end
