@@ -17,15 +17,13 @@ function newPlayer()
 	n.yspeed = 0
 	n.yaccel = 200
 
-	n.stance = "default"
-
 	n.animations = {
 		default = newAnimation(IMG_player_default,  48, 48, 1, 10),
 		crashed = newAnimation(IMG_player_crashed,  48, 48, 1, 10),
 		stopped = newAnimation(IMG_player_stopped,  48, 48, 1, 10),
 	}
 
-	n.anim = n.animations[n.stance]
+	n.anim = n.animations.default
 
 	return setmetatable(n, player)
 end

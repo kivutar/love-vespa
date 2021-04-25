@@ -20,9 +20,8 @@ function newWarning(y)
 end
 
 function warning:update(dt)
-	self.anim:update(dt)
-
 	self.t = self.t + dt
+	self.anim:update(dt)
 
 	if self.t > 1 then
 		entity_remove(self)
