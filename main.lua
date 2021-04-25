@@ -34,6 +34,11 @@ function newRandomItem(x, y, speed)
 	end
 end
 
+function lutro.conf(t)
+	t.width = SCREEN_WIDTH
+	t.height = SCREEN_HEIGHT
+end
+
 function lutro.load()
 	lutro.graphics.setDefaultFilter("nearest", "nearest", 0)
 
@@ -213,8 +218,7 @@ function lutro.load()
 		function ()
 			table.insert(ENTITIES, newHoleUp(300))
 			table.insert(ENTITIES, newWarning(102))
-		end,
-
+		end
 	}
 end
 
@@ -293,6 +297,7 @@ end
 
 function lutro.draw()
 	lutro.graphics.clear()
+	lutro.graphics.setColor(255, 255, 255)
 
 	-- Shake camera if hit
 	if SHAKE > 0 then
@@ -325,7 +330,6 @@ function lutro.draw()
 	lutro.graphics.rectangle("fill", 5, 5, 1000/5.0, 8-2)
 	lutro.graphics.setColor(132, 206, 36)
 	lutro.graphics.rectangle("fill", 5, 5, FUEL/5.0, 8 - 2)
-	lutro.graphics.setColor(255, 255, 255)
 end
 
 function lutro.gamepadpressed(i, k)
