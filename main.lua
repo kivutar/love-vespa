@@ -1,5 +1,3 @@
-lutro = love
-
 require "global"
 require "anim"
 require "player"
@@ -37,9 +35,9 @@ function newRandomItem(x, y, speed)
 end
 
 function lutro.load()
-	love.graphics.setDefaultFilter("nearest", "nearest", 0)
+	lutro.graphics.setDefaultFilter("nearest", "nearest", 0)
 
-	love.audio.setVolume(1)
+	lutro.audio.setVolume(1)
 
 	math.randomseed(os.time())
 
@@ -51,7 +49,7 @@ function lutro.load()
 
 	BGM_labbed = lutro.audio.newSource("assets/labbed.ogg", "stream")
 	BGM_labbed:setVolume(1)
-	love.audio.play(BGM_labbed)
+	lutro.audio.play(BGM_labbed)
 
 	IMG_warning = lutro.graphics.newImage("assets/warning.png")
 	IMG_repair = lutro.graphics.newImage("assets/repair.png")
@@ -311,22 +309,22 @@ function lutro.draw()
 	-- lutro.graphics.print("ARMOR: " .. ARMOR, 3, 23)
 
 	lutro.graphics.setFont(moneyfont)
-	love.graphics.setColor(255, 255, 0)
-	love.graphics.print("$" .. math.floor(MONEY), 260, 4)
+	lutro.graphics.setColor(255, 255, 0)
+	lutro.graphics.print("$" .. math.floor(MONEY), 260, 4)
 	lutro.graphics.setFont(font)
-	love.graphics.setColor(255, 255, 255)
+	lutro.graphics.setColor(255, 255, 255)
 
 	if STATE == "menu" then
 		MENU:draw()
 	end
 
-	love.graphics.setColor(255, 255, 255)
-	love.graphics.rectangle("fill", 4, 4, 1000/5.0+2, 8)
-	love.graphics.setColor(59, 92, 16)
-	love.graphics.rectangle("fill", 5, 5, 1000/5.0, 8-2)
-	love.graphics.setColor(132, 206, 36)
-	love.graphics.rectangle("fill", 5, 5, FUEL/5.0, 8 - 2)
-	love.graphics.setColor(255, 255, 255)
+	lutro.graphics.setColor(255, 255, 255)
+	lutro.graphics.rectangle("fill", 4, 4, 1000/5.0+2, 8)
+	lutro.graphics.setColor(59, 92, 16)
+	lutro.graphics.rectangle("fill", 5, 5, 1000/5.0, 8-2)
+	lutro.graphics.setColor(132, 206, 36)
+	lutro.graphics.rectangle("fill", 5, 5, FUEL/5.0, 8 - 2)
+	lutro.graphics.setColor(255, 255, 255)
 end
 
 function lutro.gamepadpressed(i, k)
