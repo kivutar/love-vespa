@@ -130,9 +130,9 @@ function player:on_collide(e1, e2, dx, dy)
 	or e2.type == "minifuel"
 	or e2.type == "money"
 	then
-		for i=1, #entities do
-			if entities[i] == e2 then
-				table.remove(entities, i)
+		for i=1, #ENTITIES do
+			if ENTITIES[i] == e2 then
+				table.remove(ENTITIES, i)
 			end
 		end
 
@@ -149,7 +149,7 @@ function player:on_collide(e1, e2, dx, dy)
 		if e2.type == "minifuel" then
 			gain = 100 * MULT
 			FUEL = FUEL + gain
-			table.insert(entities, newNotif({x=self.x, y=self.y, text="+" .. gain, color = {132, 206, 36}}))
+			table.insert(ENTITIES, newNotif({x=self.x, y=self.y, text="+" .. gain, color = {132, 206, 36}}))
 			if FUEL > 1000 then
 				FUEL = 1000
 			end
@@ -157,7 +157,7 @@ function player:on_collide(e1, e2, dx, dy)
 		if e2.type == "money" then
 			gain = 10 * MULT
 			MONEY = MONEY + gain
-			table.insert(entities, newNotif({x=self.x, y=self.y, text="+" .. gain, color = {255, 255, 0}}))
+			table.insert(ENTITIES, newNotif({x=self.x, y=self.y, text="+" .. gain, color = {255, 255, 0}}))
 		end
 		if e2.type == "repair" then HP = MAX_HP end
 

@@ -24,9 +24,9 @@ function fuel:update(dt)
 	self.anim:update(dt)
 
 	if self.x < -self.width then
-		for i=1, #entities do
-			if entities[i] == self then
-				table.remove(entities, i)
+		for i=1, #ENTITIES do
+			if ENTITIES[i] == self then
+				table.remove(ENTITIES, i)
 			end
 		end
 	end

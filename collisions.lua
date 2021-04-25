@@ -1,11 +1,11 @@
 require "global"
 
 function detect_collisions()
-	for i = 1, #entities do
- 		for j = 1, #entities do
- 			if j ~= i then
- 				local e1 = entities[i]
- 				local e2 = entities[j]
+	for i = 1, #ENTITIES do
+		for j = 1, #ENTITIES do
+			if j ~= i then
+				local e1 = ENTITIES[i]
+				local e2 = ENTITIES[j]
 
 				if e1 and e2
 				and	e1.on_collide
@@ -34,16 +34,16 @@ function detect_collisions()
 						dy = (e2.y + e2.height) - e1.y
 					end
 
- 					e1:on_collide(e1, e2, dx, dy)
+					e1:on_collide(e1, e2, dx, dy)
 				end
- 			end
- 		end
- 	end
+			end
+		end
+	end
 end
 
 function solid_at(x, y, exclude)
-	for i = 1, #entities do
-		local e = entities[i];
+	for i = 1, #ENTITIES do
+		local e = ENTITIES[i];
 
 		if  x >= e.x and x < e.x + e.width
 		and y >= e.y and y < e.y + e.height

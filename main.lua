@@ -72,91 +72,91 @@ function lutro.load()
 	SHAKE = 0
 
 	lutro.graphics.setBackgroundColor(64, 64, 64)
-	table.insert(entities, newLines())
-	table.insert(entities, newPavementsUp())
-	table.insert(entities, newPavementsDown())
+	table.insert(ENTITIES, newLines())
+	table.insert(ENTITIES, newPavementsUp())
+	table.insert(ENTITIES, newPavementsDown())
 	player = newPlayer()
-	table.insert(entities, player)
-	table.insert(entities, newLifeBar())
+	table.insert(ENTITIES, player)
+	table.insert(ENTITIES, newLifeBar())
 
 	challenges = {
 		function ()
-			table.insert(entities, newScooter(
+			table.insert(ENTITIES, newScooter(
 				SCREEN_WIDTH,
 				90,
 				- SPEED/1.5
 			))
-			table.insert(entities, newScooter(
+			table.insert(ENTITIES, newScooter(
 				SCREEN_WIDTH + 30,
 				115,
 				- SPEED/1.5
 			))
-			table.insert(entities, newScooter(
+			table.insert(ENTITIES, newScooter(
 				SCREEN_WIDTH + 30,
 				200,
 				- SPEED/1.5
 			))
-			table.insert(entities, newScooter(
+			table.insert(ENTITIES, newScooter(
 				SCREEN_WIDTH,
 				225,
 				- SPEED/1.5
 			))
-			table.insert(entities, newBus(
+			table.insert(ENTITIES, newBus(
 				SCREEN_WIDTH + 400,
 				152,
 				- SPEED/1
 			))
 		end,
 		function ()
-			table.insert(entities, newBigTruck(
+			table.insert(ENTITIES, newBigTruck(
 				SCREEN_WIDTH,
 				75 + math.random(120),
 				- SPEED/2.5
 			))
 		end,
 		function ()
-			table.insert(entities, newBus(
+			table.insert(ENTITIES, newBus(
 				SCREEN_WIDTH,
 				75 + math.random(120),
 				- SPEED/2.5
 			))
 		end,
 		function ()
-			table.insert(entities, newTruck(
+			table.insert(ENTITIES, newTruck(
 				SCREEN_WIDTH,
 				100,
 				- SPEED/(math.random(3)+1)
 			))
-			table.insert(entities, newScooter(
+			table.insert(ENTITIES, newScooter(
 				SCREEN_WIDTH + math.random()*40,
 				170,
 				- SPEED/(math.random(3)+1)
 			))
 		end,
 		function ()
-			table.insert(entities, newScooter(
+			table.insert(ENTITIES, newScooter(
 				SCREEN_WIDTH + math.random()*30,
 				100,
 				- SPEED/(math.random(3)+1)
 			))
-			table.insert(entities, newScooter(
+			table.insert(ENTITIES, newScooter(
 				SCREEN_WIDTH + math.random()*40,
 				170,
 				- SPEED/(math.random(3)+1)
 			))
 		end,
 		function ()
-			table.insert(entities, newScooter(
+			table.insert(ENTITIES, newScooter(
 				SCREEN_WIDTH + math.random()*30,
 				100,
 				- SPEED/(math.random(3)+1)
 			))
-			table.insert(entities, newScooter(
+			table.insert(ENTITIES, newScooter(
 				SCREEN_WIDTH + math.random()*40,
 				145,
 				- SPEED/(math.random(3)+1)
 			))
-			table.insert(entities, newScooter(
+			table.insert(ENTITIES, newScooter(
 				SCREEN_WIDTH + math.random()*40,
 				190,
 				- SPEED/(math.random(3)+1)
@@ -164,44 +164,44 @@ function lutro.load()
 		end,
 		function ()
 			local y = math.random(115) + 80
-			table.insert(entities, newScooter(
+			table.insert(ENTITIES, newScooter(
 				SCREEN_WIDTH,
 				y,
 				- SPEED/2
 			))
-			table.insert(entities, newRandomItem(
+			table.insert(ENTITIES, newRandomItem(
 				SCREEN_WIDTH,
 				y+20,
 				- SPEED/2
 			))
-			table.insert(entities, newScooter(
+			table.insert(ENTITIES, newScooter(
 				SCREEN_WIDTH,
 				y+40,
 				- SPEED/2
 			))
 		end,
 		function ()
-			table.insert(entities, newTruck(
+			table.insert(ENTITIES, newTruck(
 				SCREEN_WIDTH,
 				75 + math.random(60),
 				- SPEED/2.5
 			))
-			table.insert(entities, newScooter(
+			table.insert(ENTITIES, newScooter(
 				SCREEN_WIDTH + math.random()*40,
 				75 + 60 + math.random(60),
 				- SPEED/(math.random(3)+1)
 			))
 		end,
 		function ()
-			table.insert(entities, newCrosswalk())
+			table.insert(ENTITIES, newCrosswalk())
 		end,
 		function ()
-			table.insert(entities, newHoleDown(300))
-			table.insert(entities, newWarning(182))
+			table.insert(ENTITIES, newHoleDown(300))
+			table.insert(ENTITIES, newWarning(182))
 		end,
 		function ()
-			table.insert(entities, newHoleUp(300))
-			table.insert(entities, newWarning(102))
+			table.insert(ENTITIES, newHoleUp(300))
+			table.insert(ENTITIES, newWarning(102))
 		end,
 
 	}
@@ -240,13 +240,13 @@ function game_update(dt)
 
 		local r = math.random(2)
 		if r == 1 then
-			table.insert(entities, newMinifuel(
+			table.insert(ENTITIES, newMinifuel(
 				SCREEN_WIDTH,
 				75 + math.random(120),
 				- SPEED/(math.random(3)+1)
 			))
 		elseif r == 2 then
-			table.insert(entities, newMoney(
+			table.insert(ENTITIES, newMoney(
 				SCREEN_WIDTH,
 				75 + math.random(120),
 				- SPEED/(math.random(3)+1)
@@ -273,30 +273,26 @@ function game_update(dt)
 		player.anim = player.animations.crashed
 	end
 
-	for i=1, #entities do
-		if entities[i] and entities[i].update then
-			entities[i]:update(dt)
+	for i=1, #ENTITIES do
+		if ENTITIES[i] and ENTITIES[i].update then
+			ENTITIES[i]:update(dt)
 		end
 	end
 	detect_collisions()
-	table.sort(entities, compare)
+	table.sort(ENTITIES, compare)
 end
 
 function lutro.draw()
 	lutro.graphics.clear()
-
-	-- love.graphics.push()
-	-- love.graphics.scale(3, 3)
-	-- love.graphics.translate(0, 8)
 
 	-- Shake camera if hit
 	if SHAKE > 0 then
 		lutro.graphics.translate(5*(math.random()-0.5),5*(math.random()-0.5))
 	end
 
-	for i=1, #entities do
-		if entities[i].draw then
-			entities[i]:draw()
+	for i=1, #ENTITIES do
+		if ENTITIES[i].draw then
+			ENTITIES[i]:draw()
 		end
 	end
 
@@ -321,8 +317,6 @@ function lutro.draw()
 	love.graphics.setColor(132, 206, 36)
 	love.graphics.rectangle("fill", 5, 5, FUEL/5.0, 8 - 2)
 	love.graphics.setColor(255, 255, 255)
-
-	-- love.graphics.pop()
 end
 
 function lutro.gamepadpressed(i, k)

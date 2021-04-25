@@ -44,11 +44,11 @@ function game_over:gamepadpressed(i, k)
 			FUEL = 100
 			MENU = nil
 			self = nil
-			entities = {}
-			table.insert(entities, newLines())
-			table.insert(entities, newPavementsUp())
-			table.insert(entities, newPavementsDown())
-			table.insert(entities, newPlayer())
+			ENTITIES = {}
+			table.insert(ENTITIES, newLines())
+			table.insert(ENTITIES, newPavementsUp())
+			table.insert(ENTITIES, newPavementsDown())
+			table.insert(ENTITIES, newPlayer())
 		end
 	end
 	if self then

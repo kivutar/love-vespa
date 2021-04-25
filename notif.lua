@@ -18,9 +18,9 @@ function notif:update(dt)
 	self.y = self.y + self.yspeed
 
 	if self.yspeed >= 0 then
-		for i=1, #entities do
-			if entities[i] == self then
-				table.remove(entities, i)
+		for i=1, #ENTITIES do
+			if ENTITIES[i] == self then
+				table.remove(ENTITIES, i)
 			end
 		end
 	end

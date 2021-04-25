@@ -12,7 +12,7 @@ STATE = 'game'
 LAST = nil
 MULT = 1
 
-entities = {}
+ENTITIES = {}
 
 RETRO_DEVICE_ID_JOYPAD_B        = 1
 RETRO_DEVICE_ID_JOYPAD_Y        = 2
