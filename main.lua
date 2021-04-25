@@ -22,7 +22,7 @@ require "notif"
 require "lifebar"
 
 function newRandomItem(x, y, speed)
-	r = math.random(10)
+	local r = math.random(10)
 	if r == 1 then
 		return newLife(x, y, speed)
 	elseif r < 4 then
@@ -328,7 +328,4 @@ function lutro.gamepadpressed(i, k)
 	if STATE == 'menu' then
 		MENU:gamepadpressed(i, k)
 	end
-end
-
-function lutro.gamepadreleased(i, k)
 end

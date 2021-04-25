@@ -29,6 +29,3 @@ function pavements_down:draw()
 	lutro.graphics.draw(IMG_pavement_down, self.x + 4*112, self.y-7)
 	lutro.graphics.draw(IMG_pavement_down, self.x + 5*112, self.y-7)
 end
-
-function pavements_down:on_collide(e1, e2, dx, dy)
-end

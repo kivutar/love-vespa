@@ -37,6 +37,3 @@ end
 function bus:draw()
 	self.anim:draw(self.x, self.y - 20)
 end
-
-function bus:on_collide(e1, e2, dx, dy)
-end

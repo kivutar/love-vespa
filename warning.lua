@@ -32,6 +32,3 @@ end
 function warning:draw()
 	self.anim:draw(self.x, self.y)
 end
-
-function warning:on_collide(e1, e2, dx, dy)
-end

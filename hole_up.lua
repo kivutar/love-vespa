@@ -28,6 +28,3 @@ end
 function hole_up:draw()
 	self.anim:draw(self.x - 32, self.y)
 end
-
-function hole_up:on_collide(e1, e2, dx, dy)
-end
