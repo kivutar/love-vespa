@@ -6,6 +6,7 @@ function newLifeBar()
 	n.x = 0
 	n.y = 0
 	n.z = 2
+	n.width = 0
 	n.height = 8
 
 	return setmetatable(n, lifebar)

@@ -267,7 +267,7 @@ function game_update(dt)
 		lutro.audio.play(SFX_fall)
 		STATE = 'menu'
 		MENU = newGameOver()
-		PLAYER.anim = PLAYER.animations.stoped
+		PLAYER.anim = PLAYER.animations.stopped
 	end
 
 	if HP <= 0 then

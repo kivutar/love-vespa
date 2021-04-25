@@ -37,6 +37,3 @@ end
 function bigtruck:draw()
 	self.anim:draw(self.x, self.y - 30)
 end
-
-function bigtruck:on_collide(e1, e2, dx, dy)
-end

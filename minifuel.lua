@@ -31,6 +31,3 @@ end
 function minifuel:draw()
 	self.anim:draw(self.x, self.y)
 end
-
-function minifuel:on_collide(e1, e2, dx, dy)
-end

@@ -31,6 +31,3 @@ end
 function money:draw()
 	self.anim:draw(self.x, self.y)
 end
-
-function money:on_collide(e1, e2, dx, dy)
-end

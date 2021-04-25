@@ -31,6 +31,3 @@ end
 function repair:draw()
 	self.anim:draw(self.x-4, self.y - 32)
 end
-
-function repair:on_collide(e1, e2, dx, dy)
-end
