@@ -15,7 +15,7 @@ function newBus(x, y, speed)
 
 	n.stance = "normal"
 
-	colors = {"white", "red"}
+	local colors = {"white", "red"}
 
 	n.color = colors[math.random(#colors)]
 

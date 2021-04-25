@@ -15,7 +15,7 @@ function newTruck(x, y, speed)
 
 	n.stance = "normal"
 
-	colors = {"blue", "red", "white"}
+	local colors = {"blue", "red", "white"}
 
 	n.color = colors[math.random(#colors)]
 

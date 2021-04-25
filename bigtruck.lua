@@ -15,7 +15,7 @@ function newBigTruck(x, y, speed)
 
 	n.stance = "normal"
 
-	colors = {"red", "white"}
+	local colors = {"red", "white"}
 
 	n.color = colors[math.random(#colors)]
 

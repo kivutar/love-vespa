@@ -46,7 +46,7 @@ function game_over:gamepadpressed(i, k)
 			STATE = "game"
 			DISTANCE = 0
 			FUEL = 100
-			menu = nil
+			MENU = nil
 			self = nil
 			entities = {}
 			table.insert(entities, newLines())

@@ -103,7 +103,7 @@ function player:on_collide(e1, e2, dx, dy)
 		lutro.audio.play(sfx_splash)
 		scrn_shake = 0.25
 		STATE = 'menu'
-		menu = newGameOver()
+		MENU = newGameOver()
 		self.x = self.x + dx
 		self.anim = self.animations.crashed
 
@@ -111,7 +111,7 @@ function player:on_collide(e1, e2, dx, dy)
 	then
 		lutro.audio.play(sfx_fall)
 		STATE = 'menu'
-		menu = newGameOver()
+		MENU = newGameOver()
 		self.anim = self.animations.crashed
 
 	-- pavement --

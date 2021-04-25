@@ -39,7 +39,7 @@ end
 function lutro.load()
 	love.graphics.setDefaultFilter("nearest", "nearest", 0)
 
-	love.audio.setVolume( 1 )
+	love.audio.setVolume(1)
 
 	math.randomseed(os.time())
 
@@ -48,8 +48,8 @@ function lutro.load()
 	sfx_splash = lutro.audio.newSource("assets/splash.wav", "static")
 	sfx_select = lutro.audio.newSource("assets/select.wav", "static")
 	sfx_fall = lutro.audio.newSource("assets/fall.wav", "static")
-	bgm_labbed = lutro.audio.newSource("assets/labbed.ogg", "stream")
 
+	bgm_labbed = lutro.audio.newSource("assets/labbed.ogg", "stream")
 	bgm_labbed:setVolume(1)
 	love.audio.play(bgm_labbed)
 
@@ -57,10 +57,9 @@ function lutro.load()
 	lutro.graphics.setFont(font)
 
 	moneyfont = lutro.graphics.newImageFont("assets/moneyfont.png", "0123456789$")
-
 	numbersfont = lutro.graphics.newImageFont("assets/numbersfont.png", "0123456789+")
 
-	menu = nil
+	MENU = nil
 
 	scrn_shake = 0
 
@@ -231,7 +230,7 @@ function game_update(dt)
 	if COUNTER > 800 then
 		challenges[math.random(#challenges)]()
 
-		r = math.random(2)
+		local r = math.random(2)
 		if r == 1 then
 			table.insert(entities, newMinifuel(
 				SCREEN_WIDTH,
@@ -254,7 +253,7 @@ function game_update(dt)
 		FUEL = 0
 		lutro.audio.play(sfx_fall)
 		STATE = 'menu'
-		menu = newGameOver()
+		MENU = newGameOver()
 		player.anim = player.animations.stoped
 	end
 
@@ -262,7 +261,7 @@ function game_update(dt)
 		HP = 0
 		lutro.audio.play(sfx_fall)
 		STATE = 'menu'
-		menu = newGameOver()
+		MENU = newGameOver()
 		player.anim = player.animations.crashed
 	end
 
@@ -278,9 +277,9 @@ end
 function lutro.draw()
 	lutro.graphics.clear()
 
-	love.graphics.push()
-	love.graphics.scale(3, 3)
-	love.graphics.translate(0, 8)
+	-- love.graphics.push()
+	-- love.graphics.scale(3, 3)
+	-- love.graphics.translate(0, 8)
 
 	-- Shake camera if hit
 	if scrn_shake > 0 then
@@ -289,7 +288,7 @@ function lutro.draw()
 
 	for i=1, #entities do
 		if entities[i].draw then
-			entities[i]:draw(dt)
+			entities[i]:draw()
 		end
 	end
 
@@ -304,7 +303,7 @@ function lutro.draw()
 	love.graphics.setColor(255, 255, 255)
 
 	if STATE == "menu" then
-		menu:draw()
+		MENU:draw()
 	end
 
 	love.graphics.setColor(255, 255, 255)
@@ -315,12 +314,12 @@ function lutro.draw()
 	love.graphics.rectangle("fill", 5, 5, FUEL/5.0, 8 - 2)
 	love.graphics.setColor(255, 255, 255)
 
-	love.graphics.pop()
+	-- love.graphics.pop()
 end
 
 function lutro.gamepadpressed(i, k)
 	if STATE == 'menu' then
-		menu:gamepadpressed(i, k)
+		MENU:gamepadpressed(i, k)
 	end
 end
 
