@@ -17,15 +17,12 @@ function newPlayer()
 	n.yspeed = 0
 	n.yaccel = 200
 
-	n.stance = "normal"
+	n.stance = "default"
 
 	n.animations = {
-		normal = newAnimation(lutro.graphics.newImage(
-				"assets/player_normal.png"),  48, 48, 1, 10),
-		crashed = newAnimation(lutro.graphics.newImage(
-				"assets/player_crashed.png"),  48, 48, 1, 10),
-		stoped = newAnimation(lutro.graphics.newImage(
-				"assets/player_stoped.png"),  48, 48, 1, 10),
+		default = newAnimation(IMG_player_default,  48, 48, 1, 10),
+		crashed = newAnimation(IMG_player_crashed,  48, 48, 1, 10),
+		stopped = newAnimation(IMG_player_stopped,  48, 48, 1, 10),
 	}
 
 	n.anim = n.animations[n.stance]
@@ -143,7 +140,7 @@ function player:on_collide(e1, e2, dx, dy)
 			MULT = 1
 		end
 
-		gain = 0
+		local gain = 0
 
 		if e2.type == "fuel" then FUEL = 1000 end
 		if e2.type == "minifuel" then
