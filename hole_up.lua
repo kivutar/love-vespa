@@ -21,11 +21,7 @@ function hole_up:update(dt)
 	self.x = self.x - SPEED
 
 	if self.x < -self.width then
-		for i=1, #ENTITIES do
-			if ENTITIES[i] == self then
-				table.remove(ENTITIES, i)
-			end
-		end
+		entity_remove(self)
 	end
 end
 

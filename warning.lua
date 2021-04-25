@@ -25,11 +25,7 @@ function warning:update(dt)
 	self.t = self.t + dt
 
 	if self.t > 1 then
-		for i=1, #ENTITIES do
-			if ENTITIES[i] == self then
-				table.remove(ENTITIES, i)
-			end
-		end
+		entity_remove(self)
 	end
 end
 

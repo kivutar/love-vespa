@@ -30,3 +30,11 @@ RETRO_DEVICE_ID_JOYPAD_L2       = 13
 RETRO_DEVICE_ID_JOYPAD_R2       = 14
 RETRO_DEVICE_ID_JOYPAD_L3       = 15
 RETRO_DEVICE_ID_JOYPAD_R3       = 16
+
+function entity_remove(e)
+	for i=1, #ENTITIES do
+		if ENTITIES[i] == e then
+			table.remove(ENTITIES, i)
+		end
+	end
+end

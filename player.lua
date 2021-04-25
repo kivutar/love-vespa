@@ -127,11 +127,7 @@ function player:on_collide(e1, e2, dx, dy)
 	or e2.type == "minifuel"
 	or e2.type == "money"
 	then
-		for i=1, #ENTITIES do
-			if ENTITIES[i] == e2 then
-				table.remove(ENTITIES, i)
-			end
-		end
+		entity_remove(e2)
 
 		if LAST == e2.type then
 			MULT = MULT + 1
